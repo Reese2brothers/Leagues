@@ -1,6 +1,6 @@
 package com.tirokes.leagues.models.players
 
 data class Players(
-    val results: Results,
+    val results: List<Result>,
     val success: Int
 )
