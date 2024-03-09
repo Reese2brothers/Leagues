@@ -13,6 +13,7 @@ import com.tirokes.leagues.adapters.premier.PremierHomeAdapter
 import com.tirokes.leagues.databinding.FragmentPremierHomeBinding
 import com.tirokes.leagues.models.apl.table.APLTable
 import com.tirokes.leagues.network.premier.APIAway
+import com.tirokes.leagues.network.premier.APIPremierHome
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -39,8 +40,8 @@ class PremierHomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val retrofit = RetrofitClient()
             .getClient("https://1win-england-league.store/")
-            .create(APIAway::class.java)
-        retrofit.getAway().enqueue(object : Callback<APLTable> {
+            .create(APIPremierHome::class.java)
+        retrofit.getHome().enqueue(object : Callback<APLTable> {
             @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(call: Call<APLTable>, response: Response<APLTable>) {
 

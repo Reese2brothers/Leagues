@@ -12,18 +12,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tirokes.leagues.R
-import com.tirokes.leagues.RetrofitClient
 import com.tirokes.leagues.fragments.premier.PremierOverallFragment
-import com.tirokes.leagues.models.apl.table.APLTable
-import com.tirokes.leagues.models.apl.table.Overall
-import com.tirokes.leagues.models.apl.table.Results
-import com.tirokes.leagues.models.apl.table.Row
 import com.tirokes.leagues.models.apl.table.RowXX
-import com.tirokes.leagues.models.apl.table.TableXX
-import com.tirokes.leagues.network.premier.APIPremierImage
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class PremierOverallAdapter(private val contextA : Context, private val listTable: List<RowXX>,
                             private val callback: PremierOverallFragment
@@ -59,7 +49,7 @@ class PremierOverallAdapter(private val contextA : Context, private val listTabl
             playersbutton = itemView.findViewById(R.id.btPlayers)
         }
         interface onItemClick{
-            fun onClickItem(index : Int, listTable: List<RowXX>)
+            fun onClickItem(index: Int, listTable: List<RowXX>)
         }
     }
 
@@ -85,7 +75,6 @@ class PremierOverallAdapter(private val contextA : Context, private val listTabl
         holder.goals?.text = listTable[position].goalsfor
         holder.missed?.text = listTable[position].goalsagainst
         holder.change?.text = "Change : ${listTable[position].change}"
-        //holder.promotion?.text = listTable[position].promotion.name
         holder.points?.text = listTable[position].points
 
         holder.playersbutton?.setOnClickListener {

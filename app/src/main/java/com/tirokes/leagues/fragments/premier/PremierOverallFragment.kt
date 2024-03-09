@@ -2,7 +2,6 @@ package com.tirokes.leagues.fragments.premier
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,17 +13,12 @@ import com.tirokes.leagues.RetrofitClient
 import com.tirokes.leagues.adapters.premier.PremierOverallAdapter
 import com.tirokes.leagues.databinding.FragmentPremierOverallBinding
 import com.tirokes.leagues.models.apl.table.APLTable
-import com.tirokes.leagues.models.apl.table.Overall
-import com.tirokes.leagues.models.apl.table.Results
-import com.tirokes.leagues.models.apl.table.Row
 import com.tirokes.leagues.models.apl.table.RowXX
-import com.tirokes.leagues.models.apl.table.TableXX
 import com.tirokes.leagues.network.premier.APIPremierOverall
-import com.tirokes.leagues.viewmodels.PremierDataModel
+import com.tirokes.leagues.viewmodels.DataModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,7 +30,7 @@ class PremierOverallFragment : Fragment(), PremierOverallAdapter.ViewHolder.onIt
     private var coroutine : Job? = null
     lateinit var adapters : PremierOverallAdapter
     lateinit var listTable: List<RowXX>
-    private val dataModel : PremierDataModel by activityViewModels()
+    private val dataModel : DataModel by activityViewModels()
 
 
 
@@ -74,14 +68,14 @@ class PremierOverallFragment : Fragment(), PremierOverallAdapter.ViewHolder.onIt
        // }
 
     }
-    override fun onClickItem(index: Int, listTable: List<RowXX>) {
-
-            activity?.supportFragmentManager
-                ?.beginTransaction()
-                ?.replace(R.id.clPremier, PremierPlayersFragment())
-                ?.commit()
+    override fun onClickItem(index: Int, listTable: List<com.tirokes.leagues.models.apl.table.RowXX>
+    ) {
+        activity?.supportFragmentManager
+            ?.beginTransaction()
+            ?.replace(R.id.clPremier, PremierPlayersFragment())
+            ?.commit()
 
         val team_id = listTable[index].team.id
-        dataModel.team_id.value = team_id
+        dataModel.premier_team_id.value = team_id
     }
 }

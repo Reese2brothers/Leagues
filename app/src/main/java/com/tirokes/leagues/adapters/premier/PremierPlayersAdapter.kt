@@ -48,26 +48,6 @@ class PremierPlayersAdapter(private val listResult: List<Result>
             sdf.timeZone = TimeZone.getDefault()
             return sdf.format(date)
         }
-        //fun odds(@Query("key") key: String, teamId : String, callback: (Players?) -> Unit){
-//        fun odds(teamId : String, callback: (Players?) -> Unit){
-//            val team = "getdata85489gdj/"
-//            val retrofit = RetrofitClient()
-//                .getClient("https://noaropem.store/")
-//                .create(APIPlayers::class.java)
-//            retrofit.getPlayers(team, teamId).enqueue(object  : Callback<Players> {
-//                override fun onResponse(call: Call<Players>, response: Response<Players>) {
-//                    val odds = response.body()
-//                    Log.d("TAG", "ODDS: $odds")
-//                    callback(odds)
-//                }
-//
-//                override fun onFailure(call: Call<Players>, t: Throwable) {
-//                    Log.d("TAG", "null")
-//                }
-//
-//            })
-//        }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -92,14 +72,5 @@ class PremierPlayersAdapter(private val listResult: List<Result>
         holder.position?.text = listItem.position
         holder.shirtnumber?.text = listItem.shirtnumber
         holder.weight?.text = listItem.weight
-
-        //holder.odds(listItem.id){odds ->
-//        holder.odds(listItem.id){odds ->
-//            holder.id?.text = odds?
-//
-//        }
-
-
     }
-
 }
