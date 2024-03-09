@@ -49,6 +49,7 @@ class ChampionshipPlayersFragment : Fragment() {
                 ?.commit()
         }
 
+        val champteamname = dataModel.champteamname.value.toString()
         val teamid = dataModel.champ_team_id.value
         val retrofit = RetrofitClient()
             .getClient("https://1win-england-league.store/")
@@ -57,7 +58,7 @@ class ChampionshipPlayersFragment : Fragment() {
             retrofit.getChampPlayers(teamid.toString()).enqueue(object : Callback<Players> {
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onResponse(call: Call<Players>, response: Response<Players>) {
-                    adapters = ChampPlayersAdapter(response.body()!!.results)
+                    adapters = ChampPlayersAdapter(response.body()!!.results, champteamname)
                     binding.rvChampPlayers.layoutManager = LinearLayoutManager(requireActivity())
                     binding.rvChampPlayers.adapter = adapters
                     adapters.notifyDataSetChanged()

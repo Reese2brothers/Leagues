@@ -48,6 +48,7 @@ class PremierPlayersFragment : Fragment() {
                 ?.commit()
         }
 
+        val premierteamname = dataModel.premierteamname.value.toString()
         val teamid = dataModel.premier_team_id.value
         val retrofit = RetrofitClient()
             .getClient("https://1win-england-league.store/")
@@ -56,7 +57,7 @@ class PremierPlayersFragment : Fragment() {
             retrofit.getPlayers(teamid.toString()).enqueue(object : Callback<Players> {
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onResponse(call: Call<Players>, response: Response<Players>) {
-                        adapters = PremierPlayersAdapter(response.body()!!.results)
+                        adapters = PremierPlayersAdapter(response.body()!!.results, premierteamname)
                         binding.rvPremierPlayers.layoutManager = LinearLayoutManager(requireActivity())
                         binding.rvPremierPlayers.adapter = adapters
                         adapters.notifyDataSetChanged()

@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.llPL.setOnClickListener {
             binding.llPL.alpha = 1f
-            binding.llCSL.alpha = 0.9f
-            binding.llOL.alpha = 0.9f
+            binding.llCSL.alpha = 0.8f
+            binding.llOL.alpha = 0.8f
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.flMain, PremierFragment())
@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity() {
         }
         binding.llCSL.setOnClickListener {
             binding.llCSL.alpha = 1f
-            binding.llPL.alpha = 0.9f
-            binding.llOL.alpha = 0.9f
+            binding.llPL.alpha = 0.8f
+            binding.llOL.alpha = 0.8f
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.flMain, ChampionshipFragment())
@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
         }
         binding.llOL.setOnClickListener {
             binding.llOL.alpha = 1f
-            binding.llPL.alpha = 0.9f
-            binding.llCSL.alpha = 0.9f
+            binding.llPL.alpha = 0.8f
+            binding.llCSL.alpha = 0.8f
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.flMain, OneFragment())

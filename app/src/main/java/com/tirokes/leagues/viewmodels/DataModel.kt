@@ -14,4 +14,13 @@ class DataModel : ViewModel() {
     val one_team_id : MutableLiveData<String> by lazy{
         MutableLiveData<String>()
     }
+    val premierteamname : MutableLiveData<String> by lazy{
+        MutableLiveData<String>()
+    }
+    val champteamname : MutableLiveData<String> by lazy{
+        MutableLiveData<String>()
+    }
+    val oneteamname : MutableLiveData<String> by lazy{
+        MutableLiveData<String>()
+    }
 }

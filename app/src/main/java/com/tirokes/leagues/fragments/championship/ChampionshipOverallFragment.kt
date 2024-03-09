@@ -74,8 +74,10 @@ class ChampionshipOverallFragment : Fragment(), ChampOverallAdapter.ViewHolder.o
             ?.replace(R.id.clChamp, ChampionshipPlayersFragment())
             ?.commit()
 
+        val champteamname = listTable[index].team.name
         val team_id = listTable[index].team.id
         dataModel.champ_team_id.value = team_id
+        dataModel.champteamname.value = champteamname
     }
 
 }

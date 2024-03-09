@@ -48,7 +48,6 @@ class OneOverallFragment : Fragment(), OneOverallAdapter.ViewHolder.onItemClick 
         val retrofit = RetrofitClient()
             .getClient("https://1win-england-league.store/")
             .create(APIOneOverall::class.java)
-        //coroutineScope.launch {
         retrofit.getOneOverall().enqueue(object : Callback<One> {
             @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(call: Call<One>, response: Response<One>) {
@@ -60,13 +59,10 @@ class OneOverallFragment : Fragment(), OneOverallAdapter.ViewHolder.onItemClick 
                 binding.progressBarOne.visibility = View.GONE
                 binding.tvLoadindOne.visibility = View.GONE
             }
-
             override fun onFailure(call: Call<One>, t: Throwable) {
 
             }
         })
-        // }
-
     }
     override fun onClickItem(index: Int, listTable: List<RowXX>) {
 
@@ -75,8 +71,10 @@ class OneOverallFragment : Fragment(), OneOverallAdapter.ViewHolder.onItemClick 
             ?.replace(R.id.clOne, OnePlayersFragment())
             ?.commit()
 
+        val oneteamname = listTable[index].team.name
         val team_id = listTable[index].team.id
         dataModel.one_team_id.value = team_id
+        dataModel.oneteamname.value = oneteamname
     }
 
 }

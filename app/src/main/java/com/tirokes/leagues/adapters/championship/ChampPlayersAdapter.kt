@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.TimeZone
 
-class ChampPlayersAdapter(private val listResult: List<Result>
+class ChampPlayersAdapter(private val listResult: List<Result>, private val teamname : String
 ) : RecyclerView.Adapter<ChampPlayersAdapter.ViewHolder>() {
 
     class ViewHolder(itemView : View)  : RecyclerView.ViewHolder(itemView) {
@@ -27,6 +27,7 @@ class ChampPlayersAdapter(private val listResult: List<Result>
         var position: TextView? = null
         var shirtnumber: TextView? = null
         var weight: TextView? = null
+        var teamnameleague : TextView? = null
 
         init {
             birthday = itemView.findViewById(R.id.tvBirthDate)
@@ -39,6 +40,7 @@ class ChampPlayersAdapter(private val listResult: List<Result>
             position = itemView.findViewById(R.id.tvPosition)
             shirtnumber = itemView.findViewById(R.id.tvShirtNumber)
             weight = itemView.findViewById(R.id.tvWeight)
+            teamnameleague = itemView.findViewById(R.id.tvTeamNameLeague)
         }
         @SuppressLint("SimpleDateFormat")
         fun timeS(unixSeconds: Int): String {
@@ -71,5 +73,6 @@ class ChampPlayersAdapter(private val listResult: List<Result>
         holder.position?.text = listItem.position
         holder.shirtnumber?.text = listItem.shirtnumber
         holder.weight?.text = listItem.weight
+        holder.teamnameleague?.text = teamname
     }
 }

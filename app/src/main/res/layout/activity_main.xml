@@ -45,7 +45,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                app:srcCompat="@drawable/pllogo" />
+                app:srcCompat="@drawable/lion" />
 
             <TextView
                 android:id="@+id/textView"
@@ -59,7 +59,7 @@
                 android:shadowRadius="2"
                 android:text="Premier\n League"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -70,7 +70,7 @@
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
             android:layout_weight="1"
-            android:alpha="0.9"
+            android:alpha="0.8"
             android:background="@color/blue"
             android:gravity="center"
             android:orientation="vertical"
@@ -94,7 +94,7 @@
                 android:shadowRadius="2"
                 android:text="Championship League"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -105,7 +105,7 @@
             android:layout_marginStart="1dp"
             android:layout_marginEnd="2dp"
             android:layout_weight="1"
-            android:alpha="0.9"
+            android:alpha="0.8"
             android:background="@color/lightblue"
             android:gravity="center"
             android:orientation="vertical"
@@ -129,7 +129,7 @@
                 android:shadowRadius="2"
                 android:text="One\nLeague"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

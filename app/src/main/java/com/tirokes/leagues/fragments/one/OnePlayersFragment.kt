@@ -48,6 +48,7 @@ class OnePlayersFragment : Fragment() {
                 ?.commit()
         }
 
+        val oneteamname = dataModel.oneteamname.value.toString()
         val teamid = dataModel.one_team_id.value
         val retrofit = RetrofitClient()
             .getClient("https://1win-england-league.store/")
@@ -56,7 +57,7 @@ class OnePlayersFragment : Fragment() {
             retrofit.getOnePlayers(teamid.toString()).enqueue(object : Callback<Players> {
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onResponse(call: Call<Players>, response: Response<Players>) {
-                    adapters = OnePlayersAdapter(response.body()!!.results)
+                    adapters = OnePlayersAdapter(response.body()!!.results, oneteamname )
                     binding.rvOnePlayers.layoutManager = LinearLayoutManager(requireActivity())
                     binding.rvOnePlayers.adapter = adapters
                     adapters.notifyDataSetChanged()

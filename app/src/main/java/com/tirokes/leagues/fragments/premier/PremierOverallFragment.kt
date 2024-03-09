@@ -48,7 +48,6 @@ class PremierOverallFragment : Fragment(), PremierOverallAdapter.ViewHolder.onIt
         val retrofit = RetrofitClient()
             .getClient("https://1win-england-league.store/")
             .create(APIPremierOverall::class.java)
-        //coroutineScope.launch {
             retrofit.getOverall().enqueue(object : Callback<APLTable> {
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onResponse(call: Call<APLTable>, response: Response<APLTable>) {
@@ -65,8 +64,6 @@ class PremierOverallFragment : Fragment(), PremierOverallAdapter.ViewHolder.onIt
 
                 }
             })
-       // }
-
     }
     override fun onClickItem(index: Int, listTable: List<com.tirokes.leagues.models.apl.table.RowXX>
     ) {
@@ -75,7 +72,9 @@ class PremierOverallFragment : Fragment(), PremierOverallAdapter.ViewHolder.onIt
             ?.replace(R.id.clPremier, PremierPlayersFragment())
             ?.commit()
 
+        val premierteamname = listTable[index].team.name
         val team_id = listTable[index].team.id
         dataModel.premier_team_id.value = team_id
+        dataModel.premierteamname.value = premierteamname
     }
 }
